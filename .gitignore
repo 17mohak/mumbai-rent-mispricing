@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environment
+.venv/
+
+# Secrets / environment files
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Real scraped/listing-level data — never republished per project policy
+# ("Raw listings are never republished; only aggregates ship publicly").
+# Regenerate locally via the Phase B/C/E commands in README.md.
+data/raw/
+data/processed/listings.parquet
+data/processed/listings_geo.parquet
+data/processed/listings_scored.parquet
+outputs/arbitrage_list.csv
+outputs/rentlens_mumbai_map.html
+
+# Trained model artefacts (large binaries, regenerable from the pipeline)
+models/rentlens/*.pkl
+
+# Unrelated internal file accidentally left in this folder (Sagitec QA/bug
+# tracking export referencing an internal pension-system project) — must
+# never be published.
+data/Updated_Data.xlsx

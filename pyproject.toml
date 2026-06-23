@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rentlens"
+version = "0.1.0"
+description = "Mumbai rental mispricing & transit-arbitrage engine"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=3.0.3",
+    "pyarrow>=24.0.0",
+    "numpy>=2.4.6",
+    "scikit-learn>=1.9.0",
+    "lightgbm>=4.6.0",
+    "shap>=0.52.0",
+    "geopy>=2.4.1",
+    "folium>=0.20.0",
+    "pytest>=9.1.1",
+    "pyyaml>=6.0.3",
+    "scipy>=1.18.0",
+    "matplotlib>=3.11.0",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.6",
+    "mapclassify>=2.10.0",
+    "beautifulsoup4>=4.15.0",
+    "lxml>=6.1.1",
+]
+
+[project.scripts]
+rentlens = "rentlens.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

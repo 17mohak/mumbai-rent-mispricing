@@ -1,0 +1,52 @@
+city: mumbai
+display_name: Mumbai
+
+# Approximate bounding box for Greater Mumbai + Thane
+bounding_box:
+  lat_min: 18.89
+  lat_max: 19.35
+  lon_min: 72.77
+  lon_max: 73.05
+
+# Localities used in the synthetic dataset with approx centroids
+localities:
+  - name: Powai
+    lat: 19.1176
+    lon: 72.9060
+    base_rent_per_sqft: 65   # ₹/sqft/month
+  - name: Bandra East
+    lat: 19.0583
+    lon: 72.8505
+    base_rent_per_sqft: 85
+  - name: Andheri East
+    lat: 19.1136
+    lon: 72.8697
+    base_rent_per_sqft: 60
+  - name: Goregaon
+    lat: 19.1663
+    lon: 72.8526
+    base_rent_per_sqft: 55
+  - name: Chembur
+    lat: 19.0522
+    lon: 72.8996
+    base_rent_per_sqft: 50
+  - name: Mulund
+    lat: 19.1726
+    lon: 72.9574
+    base_rent_per_sqft: 45
+  - name: Thane West
+    lat: 19.2183
+    lon: 72.9781
+    base_rent_per_sqft: 42
+
+# PLANTED MISPRICING (ground-truth constants — used to verify model recovery)
+# Powai listings are generated +12% above their hedonic fair value
+# Mulund listings are generated -9% below their hedonic fair value
+planted_mispricing:
+  Powai: +0.12
+  Mulund: -0.09
+
+transit_table: data/reference/transit_mumbai.csv
+
+# Spatial CV: hold out one locality at a time
+spatial_cv_column: locality

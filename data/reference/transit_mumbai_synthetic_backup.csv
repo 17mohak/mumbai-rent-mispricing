@@ -1,0 +1,21 @@
+station_name,line,latitude,longitude,status,opening_date
+Andheri Metro,Metro Line 1,19.1197,72.8464,operational,2014-06-08
+Ghatkopar Metro,Metro Line 1,19.0866,72.9087,operational,2014-06-08
+Versova Metro,Metro Line 1,19.1266,72.8198,operational,2014-06-08
+Bandra Station,Western Railway,19.0543,72.8407,operational,1867-01-01
+Kurla Station,Central Railway,19.0726,72.8794,operational,1867-01-01
+Chembur Station,Harbour Line,19.0607,72.8994,operational,1925-03-01
+Goregaon Station,Western Railway,19.1651,72.8498,operational,1900-01-01
+Mulund Station,Central Railway,19.1760,72.9580,operational,1952-08-15
+Thane Station,Central Railway,19.1834,72.9737,operational,1854-04-16
+Powai Lake Metro,Metro Line 6,19.1182,72.9058,under_construction,2026-03-31
+Vikhroli Metro,Metro Line 6,19.1067,72.9286,under_construction,2026-03-31
+Kanjurmarg Metro,Metro Line 6,19.1131,72.9377,under_construction,2026-06-30
+Bhandup Metro,Metro Line 4,19.1488,72.9452,under_construction,2026-09-30
+Thane-Cadbury Metro,Metro Line 4,19.2148,72.9781,under_construction,2026-12-31
+Wadala Metro Hub,Metro Line 4,19.0170,72.8514,under_construction,2027-03-31
+Mulund East Metro,Metro Line 4,19.1726,72.9700,planned,2027-12-31
+Powai North Metro,Metro Line 6 Ext,19.1350,72.9100,planned,2028-03-31
+Goregaon East Metro,Metro Line 2B,19.1663,72.8700,planned,2028-06-30
+Chembur-Thane Link,Metro Line 11,19.0900,72.9200,planned,2029-01-01
+Thane-Bhiwandi Jn,Metro Line 5,19.2500,73.0000,planned,2029-06-30
