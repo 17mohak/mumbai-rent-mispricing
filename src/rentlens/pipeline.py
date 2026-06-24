@@ -28,7 +28,6 @@ def phase1(city_config: Path) -> None:
     df = run(city_config, out)
 
     from rentlens.data.generate import planted_signal_check
-    import pandas as pd
 
     summary = (
         df.groupby("locality")

@@ -63,7 +63,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
-from scipy import stats
 
 from rentlens.geo.transit import haversine_m
 from rentlens.model.features import add_derived
