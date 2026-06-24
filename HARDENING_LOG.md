@@ -61,4 +61,31 @@ Branch: `repo-hardening`.
 
 ## Completed changes
 
-<!-- entries appended per commit below -->
+All entries dated 2026-06-24. Validation baseline before the pass: `63 passed`.
+After the pass (with the two new test modules): `112 passed`.
+
+| Commit | Category | Issue | Root cause | Files | Validation |
+|---|---|---|---|---|---|
+| `38d9a54` | — | Hardening log + backlog | n/a | `HARDENING_LOG.md` | n/a |
+| `6b5fa2d` | A1 | Package version `0.1.0` ≠ README `v0.2` | pyproject never bumped after real-data support | `pyproject.toml` | `pytest` → 63 passed |
+| `069c47e` | A2 | README "Python 3.14" ≠ `requires-python=">=3.11"` | prose drift from authoritative constraint | `README.md` | doc-only |
+| `8b75617` | A3 | Methodology "Phase N" labels ≠ `--phase N` CLI flags | two independent numbering schemes; "Phase 6 — Causal" instructs `--phase 5` | `README.md` | doc-only (no renumber) |
+| `5b226a0` | A4 | `clean.py` had no tests | missing coverage | `tests/test_clean.py` | 25 new tests pass; full 88 passed |
+| `ef71e86` | A5 | scraper had no tests | missing coverage | `tests/test_scrape.py` | 24 new tests pass; full 112 passed |
+| `346c38c` | A6 | unused imports in 4 modules | leftover imports | `mispricing.py`, `diff_in_diff.py`, `pipeline.py`, `generate.py` | imports OK; 112 passed |
+| `8656be0` | A7 | duplicate haversine in `clean.py` | copy of `geo/transit.haversine_m` | `data/clean.py` | numeric bit-equivalence proven; 112 passed |
+| `b478c29` | A8 | no CI | none configured | `.github/workflows/ci.yml` | YAML validated |
+| `cbabb06` | A9 | no contributor doc | missing onboarding | `CONTRIBUTING.md` | doc-only |
+
+### Validation notes
+
+- The model modules (`hedonic`, `gbm`, `uncertainty`, `mispricing`) and `causal`
+  require `statsmodels` / `lightgbm`; these were installed for validation
+  **without upgrading** the pre-existing `numpy` 2.4.2 / `pandas` 2.2.2, so the
+  numerical baseline is unchanged.
+- `A7` was gated on an explicit numerical equivalence check (Series and array
+  inputs, non-contiguous index) confirming the two haversine implementations
+  return identical values before the duplicate was removed.
+- No change touched model features, training, scoring, ranking, arbitrage,
+  causal methodology, synthetic assumptions, planted-bias values, cleaning
+  thresholds, or any reported metric/finding.
