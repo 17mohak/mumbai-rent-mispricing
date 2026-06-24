@@ -123,6 +123,17 @@ penalty — flagged here rather than over-interpreted.
 
 ## Methodology
 
+> **Note on "Phase" numbering.** The `### Phase N` headings below describe the
+> *conceptual* analytical stages and do **not** map one-to-one onto the
+> `--phase N` flags of `rentlens.pipeline`. The orchestrator's CLI phases are:
+> `1` = synthetic generation, `2` = transit enrichment, `3` = models,
+> `4` = mispricing + arbitrage, `5` = causal DiD demo, `6` = interactive map.
+> (Real-data ingestion and cleaning — the conceptual "Phase 1/2" headings — run
+> as the separate `rentlens.scrape.run` and `rentlens.data.clean` commands, not
+> as `--phase` steps.) So, e.g., the causal demo under "Phase 6 — Causal
+> analysis" below is invoked with `--phase 5`, and the map with `--phase 6`,
+> exactly as shown in "Reproducing".
+
 ### Phase 1 — Real data ingestion (replaces synthetic generation as the default path)
 
 **Source selection** (`src/rentlens/scrape/`): checked robots.txt for 5 candidate
