@@ -322,7 +322,7 @@ Mumbai locality is added.
 
 ## Stack
 
-Python 3.14 · pandas · pyarrow · numpy · scikit-learn · lightgbm · shap ·
+Python 3.11+ · pandas · pyarrow · numpy · scikit-learn · lightgbm · shap ·
 statsmodels · geopy · folium · scipy · matplotlib · seaborn · pytest ·
 beautifulsoup4 · lxml · requests
 
