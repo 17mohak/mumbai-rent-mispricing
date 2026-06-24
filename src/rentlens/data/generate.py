@@ -192,7 +192,6 @@ def run(config_path: Path, output_path: Path) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    import sys
     root = Path(__file__).resolve().parents[3]
     cfg = root / "config" / "cities" / "mumbai.yaml"
     out = root / "data" / "processed" / "listings.parquet"

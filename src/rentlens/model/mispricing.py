@@ -33,7 +33,7 @@ import pandas as pd
 import statsmodels.api as sm
 
 from rentlens.data.generate import PLANTED_BIAS
-from rentlens.model.features import ols_Xy, add_derived
+from rentlens.model.features import ols_Xy
 
 
 # ── cross-market (no-locality) fundamental model ────────────────────────────
