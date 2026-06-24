@@ -250,7 +250,7 @@ pip install -e .
 # 2a. REAL DATA (default localities: Powai, Mulund, Andheri East)
 python -m rentlens.scrape.run              # scrape MagicBricks -> data/raw/magicbricks_listings_raw.parquet
 python -m rentlens.data.clean              # clean + validate  -> data/processed/listings.parquet
-python -m rentlens.geo.build_transit_table # real OSM transit table (only needed once / to refresh)
+python -m rentlens.geo.build_transit_table # write curated OSM-sourced transit table + refresh Overpass audit cache (table content changes only when the curated STATIONS list is edited)
 python -m rentlens.pipeline --city mumbai --source real    # phases 2-4, 6 (phase 1 & 5 auto-skipped)
 
 # 2b. OR fall back to the original synthetic methodology demonstration
