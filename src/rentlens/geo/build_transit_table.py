@@ -74,8 +74,10 @@ def fetch_overpass(cache_path: Path, force_refresh: bool = False) -> dict:
 # ---------------------------------------------------------------------------
 # Curated station list.
 #
-# Names + coordinates are taken directly from the cached OSM query (traceable
-# via osm_id). "status" is derived from the OSM tag actually present
+# Names + coordinates are transcribed by hand from the OSM/Overpass data for
+# each station and recorded with the source osm_id where known (some rows carry
+# a placeholder/FLAG osm_id pending confirmation). "status" is derived from the
+# OSM tag observed at curation time
 # (railway=station -> operational, railway=construction/construction=* ->
 # under_construction, proposed=*/railway=proposed -> planned).
 #
