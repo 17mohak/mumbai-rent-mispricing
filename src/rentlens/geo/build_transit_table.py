@@ -1,9 +1,12 @@
 """
 Phase A — Real transit table builder.
 
-Pulls real Mumbai metro / suburban-rail station coordinates from OpenStreetMap
-via the Overpass API, scoped to the corridors serving the three target
-localities (Powai, Mulund, Andheri East). Output preserves the exact schema
+Compiles a real Mumbai metro / suburban-rail station table from OpenStreetMap
+data, scoped to the corridors serving the three target localities (Powai,
+Mulund, Andheri East). The module issues an Overpass API query and caches the
+raw response for audit (fetch_overpass); the table it emits is the manually-
+curated `STATIONS` list below — transcribed from that OSM data — not a
+programmatic parse of the Overpass response. Output preserves the exact schema
 the rest of the pipeline already reads (geo/transit.py):
 
     station_name, line, latitude, longitude, status, opening_date
