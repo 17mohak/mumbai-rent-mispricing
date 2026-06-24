@@ -34,6 +34,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+# Single source of truth for the haversine distance (identical formula/constant
+# previously duplicated here); imported under the same private name this module
+# already used so call sites are unchanged.
+from rentlens.geo.transit import haversine_m as _haversine_m
+
 # Step 3 — industry-standard carpet/super-area loading factor. Carpet area is
 # typically 65-75% of super built-up area in Indian residential real estate;
 # 0.70 is the commonly cited midpoint. Applied ONLY when carpet area itself
@@ -75,13 +80,6 @@ AGE_BUCKET_MIDPOINTS = {
     "Const. Age 20+ years": 25.0,
 }
 POSSESSION_DATE_RE = re.compile(r"^From\s+\w+\s+'\d{2}$")  # e.g. "From Jul '26"
-
-
-def _haversine_m(lat1, lon1, lat2, lon2) -> np.ndarray:
-    R = 6_371_000.0
-    lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
-    a = np.sin((lat2 - lat1) / 2) ** 2 + np.cos(lat1) * np.cos(lat2) * np.sin((lon2 - lon1) / 2) ** 2
-    return R * 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
 
 
 def _parse_floor(floor_raw: str | None) -> tuple[float | None, float | None]:
