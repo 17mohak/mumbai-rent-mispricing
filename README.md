@@ -175,11 +175,14 @@ it collapsed legitimately distinct units in the same building).
 
 ### Phase 3 — Real transit table (`src/rentlens/geo/build_transit_table.py`)
 
-37 real stations pulled from OpenStreetMap via the Overpass API, scoped to the
-corridors serving the 3 target localities. Names/coordinates/construction-status
-are taken directly from OSM tags (high confidence — it's sourced data); opening
-dates and some line attributions are **left blank rather than guessed** where OSM
-doesn't carry them, with an explicit `confidence`/`review_note` column flagging
+37 real stations compiled from OpenStreetMap, scoped to the
+corridors serving the 3 target localities. The builder issues an Overpass API
+query and caches the raw response to `data/raw/osm/` for audit; the shipped table
+is then a manually-curated station list whose names/coordinates/construction-status
+are transcribed from that OSM data (each row records its source `osm_id` where
+known). This curation is deliberate — OSM's tagging for under-construction lines is
+inconsistent, so opening dates and some line attributions are **left blank rather
+than guessed** where OSM doesn't carry them, with an explicit `confidence`/`review_note` column flagging
 21 of 37 stations for manual confirmation (these columns are for human review only
 — the pipeline doesn't read them). The old synthetic transit table is preserved at
 [`data/reference/transit_mumbai_synthetic_backup.csv`](data/reference/transit_mumbai_synthetic_backup.csv).
